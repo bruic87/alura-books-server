@@ -1,5 +1,5 @@
 const { Router } = require("express")
-const { getLivros, getLivro, addLivro } = require("../controladores/livro")
+const { getLivros, getLivro, addLivro, patchLivro, deleteLivro } = require("../controladores/livro")
  
 const router = Router()
 
@@ -9,12 +9,8 @@ router.get('/:id', getLivro)
 
 router.post('/', addLivro)
 
-router.patch('/', (req, res) => {
-    res.send("Requisição PATCH efetuada com sucesso!")
-})
+router.patch('/:id', patchLivro)
 
-router.delete('/', (req, res) => {
-    res.send("Requisição DELETE efetuada com sucesso!")
-})
+router.delete('/:id', deleteLivro)
 
 module.exports = router
